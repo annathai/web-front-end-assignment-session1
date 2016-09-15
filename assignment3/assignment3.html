@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Validate email, name, id, and phone from form input</title>
+</head>
+<body>
+<div style="width: 50%; margin: 0 auto;">
+    <h1>Input Information:</h1>
+    <form >
+        <label>Name: <input type="text" placeholder="Name" id="name" required ></label>
+        <br> <br>
+        <label>Email: <input type="email" placeholder="Email" id="email" required
+                             onblur="(function(element){
+                                            var email = element.value;
+                                            function validate(){
+                                                var regEx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+                                                return regEx.test(email);
+                                            }
+                                            if(!validate()) {
+                                                alert('Email: ' + email + ' is not valid');
+                                            }
+                                        })(this);">
+        </label>
+        <br> <br>
+        <label>Phone: <input type="tel" placeholder="Phone" id="phone" required></label>
+        <br> <br>
+        <label>Address: <input type="text" placeholder="Address" id="address"></label>
+        <br> <br>
+        <input type="submit" value="Submit form" onclick="doNothing()">
+    </form>
+</div>
+
+<script type="text/javascript">
+    function doNothing() {
+        alert('Do nothing !');
+    }
+
+</script>
+</body>
+</body>
+</html>
